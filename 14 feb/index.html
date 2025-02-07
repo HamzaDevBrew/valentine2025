@@ -49,6 +49,7 @@
         <button id="no" onclick="increaseYes()">NO</button>
     </div>
     <h1 id="finalMessage" class="hidden">hihi bubu 🥰 I knew it, you can't live without me! 😘 I love you so much ❤️✨ - you are now My Valentine 💖🎉</h1>
+    <h2 id="countdown" class="hidden"></h2>
     
     <script>
         let yesButton = document.getElementById('yes');
@@ -93,6 +94,20 @@
             document.getElementById('buttonContainer').classList.add('hidden');
             document.getElementById('noMessage').classList.add('hidden');
             document.getElementById('finalMessage').classList.remove('hidden');
+            document.getElementById('countdown').classList.remove('hidden');
+            
+            let timeLeft = 5;
+            let countdownElement = document.getElementById('countdown');
+            countdownElement.innerText = `Redirecting in ${timeLeft}...`;
+            
+            let timer = setInterval(() => {
+                timeLeft--;
+                countdownElement.innerText = `Redirecting in ${timeLeft}...`;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    window.location.href = "https://soundcloud.com/hamza-shaikh-405508678/5-years-valentine";
+                }
+            }, 1000);
         }
     </script>
 </body>

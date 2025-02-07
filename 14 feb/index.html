@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+            font-family: 'Arial', sans-serif;
+            flex-direction: column;
+            text-align: center;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        #yes {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        #no {
+            background-color: #ccc;
+            color: black;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="question">Will You Be My Valentine? 💖</h1>
+    <h2 id="noMessage" class="hidden"></h2>
+    <div class="buttons" id="buttonContainer">
+        <button id="yes" onclick="showMessage()">YES</button>
+        <button id="no" onclick="increaseYes()">NO</button>
+    </div>
+    <h1 id="finalMessage" class="hidden">hihi bubu 🥰 I knew it, you can't live without me! 😘 I love you so much ❤️✨ - you are now My Valentine 💖🎉</h1>
+    
+    <script>
+        let yesButton = document.getElementById('yes');
+        let noMessage = document.getElementById('noMessage');
+        let size = 20;
+        let clickCount = 0;
+        let messages = [
+            "Jacob waited 7 years for Rachel, and you need only a second! 💕",
+            "Love is patient, love is kind. 1 Corinthians 13:4-7 ✨",
+            "Perfect love casts out fear. 1 John 4:18 ❤️",
+            "Two are better than one. Ecclesiastes 4:9-10 💑",
+            "Many waters cannot quench love. Song of Solomon 8:7 💖",
+            "You are bone of my bones, flesh of my flesh. Genesis 2:23 🥰",
+            "Let all that you do be done in love. 1 Corinthians 16:14 💞",
+            "I have found the one whom my soul loves. Song of Solomon 3:4 💓",
+            "You were fearfully and wonderfully made. Psalm 139:14 ✨",
+            "A cord of three strands is not easily broken. Ecclesiastes 4:12 👫",
+            "Rejoice in love always. Philippians 4:4 💕",
+            "Above all, put on love, which binds everything together. Colossians 3:14 ❤️",
+            "A friend loves at all times. Proverbs 17:17 💖",
+            "Do everything in love. 1 Corinthians 16:14 🥰",
+            "Love never fails. 1 Corinthians 13:8 💞",
+            "Husbands, love your wives as Christ loved the church. Ephesians 5:25 💏",
+            "The greatest of these is love. 1 Corinthians 13:13 ❤️",
+            "You complete me like Adam and Eve. Genesis 2:24 💑",
+            "Delight yourself in the Lord, and He will give you the desires of your heart. Psalm 37:4 💕",
+            "Love each other deeply, because love covers a multitude of sins. 1 Peter 4:8 💖"
+        ];
+        
+        function increaseYes() {
+            size += 10;
+            yesButton.style.fontSize = size + 'px';
+            yesButton.style.padding = (size / 2) + 'px ' + size + 'px';
+            
+            noMessage.innerText = messages[clickCount % messages.length];
+            noMessage.classList.remove('hidden');
+            clickCount++;
+        }
+
+        function showMessage() {
+            document.getElementById('question').classList.add('hidden');
+            document.getElementById('buttonContainer').classList.add('hidden');
+            document.getElementById('noMessage').classList.add('hidden');
+            document.getElementById('finalMessage').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
